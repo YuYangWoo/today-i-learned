@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="footer.jsp">
-<jsp:param name="name" value="yu" />
-	<jsp:param name="email" value="test@test.net" />
-	<jsp:param name="tel" value="000-000-0000" />
-</jsp:include>
+<h3>footer.jsp: print parameters !!</h3> 
+<HR>
+<li>Name: <%= request.getParameter("name") %></li>
+	<li>Email: <%= request.getParameter("email") %></li>
+	<li>Tel: <%= request.getParameter("tel") %></li>
 </body>
 </html>
