@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sign-up Form</title>
+</head>
+<body>
+<H2>Sign-up form</H2>
+<HR>
+<form method="post" action="signupResult.jsp">
+<label>Name</label><br>
+<input type=text size=20 name="username"><br>
+
+<label>Job</label><br>
+<select name="job">
+	<option selected>None</option>
+	<option>Business</option>
+	<option>IT Company</option>
+	<option>Student</option>
+</select>
+<br>
+
+<label>Hobbies</label><br>
+<input type="checkbox" name="hobby" value="001-Soccer">Soccer
+<input type="checkbox" name="hobby" value="002-Travel">Travel
+<input type="checkbox" name="hobby" value="003-Music">Music
+
+<hr>
+<input type="submit" value="Confirm"><input type="reset" value="Cancel">
+</form>
+</body>
+</html>
