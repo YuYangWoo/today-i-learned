@@ -4,12 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+
         <variable
-            name="person"
-            type="com.cookandroid.databinding.MainActivity.Person" />
-        <variable
-            name="str"
-            type="String" />
+            name="main"
+            type="com.cookandroid.databinding.MainActivity" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -24,8 +22,8 @@
             android:layout_marginTop="147dp"
             android:layout_marginEnd="175dp"
             android:onClick="btn1Click"
-            android:text="@{person.name}"
             android:textSize="50dp"
+            android:text="@{main.text1}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +35,8 @@
             android:layout_marginStart="187dp"
             android:layout_marginTop="104dp"
             android:layout_marginEnd="216dp"
-            android:text="@{String.valueOf(person.age)}"
+            android:text="@{main.text2}"
+
             android:textSize="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -51,7 +50,8 @@
             android:layout_marginStart="185dp"
             android:layout_marginTop="155dp"
             android:layout_marginEnd="198dp"
-            android:text="3"
+            android:text="@{main.text3}"
+
             android:textSize="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +65,7 @@
             android:layout_marginTop="147dp"
             android:layout_marginEnd="97dp"
             android:text="Button"
+            android:onClick="@{main::btn1Click}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txt1"
             app:layout_constraintTop_toTopOf="parent" />
@@ -92,5 +93,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txt3"
             app:layout_constraintTop_toBottomOf="@+id/btn2" />
+
+        <Button
+            android:id="@+id/nextActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="148dp"
+            android:text="다음 액티비티"
+            android:onClick="@{main::nextClick}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
