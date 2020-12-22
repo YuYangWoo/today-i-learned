@@ -39,7 +39,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:imageUrl="@{user.profile}"/>
+            imageUrl="@{user.profile}"/>
 
     </LinearLayout>
 
