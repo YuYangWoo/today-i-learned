@@ -8,11 +8,18 @@
             name="next"
             type="com.cookandroid.databinding.NextActivity" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/nnextButton"
+            tools:text="다음액티비티로"
+            android:onClick="@{next::nnextBtn}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mainRcv"
