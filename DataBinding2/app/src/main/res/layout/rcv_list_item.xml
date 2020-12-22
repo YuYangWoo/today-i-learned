@@ -36,6 +36,10 @@
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="@{String.valueOf(user.age)}"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:imageUrl="@{user.profile}"/>
 
     </LinearLayout>
 

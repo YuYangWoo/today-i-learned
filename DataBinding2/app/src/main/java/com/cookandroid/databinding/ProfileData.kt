@@ -2,5 +2,6 @@ package com.cookandroid.databinding
 
 data class ProfileData(
     var name: String,
-    var age: Int
+    var age: Int,
+    var profile: String
 )
