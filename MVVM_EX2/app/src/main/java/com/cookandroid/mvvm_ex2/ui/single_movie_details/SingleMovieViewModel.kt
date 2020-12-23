@@ -1,6 +1,5 @@
-package com.cookandroid.mvvm_ex2.single_movie_details
+package com.cookandroid.mvvm_ex2.ui.single_movie_details
 
-import android.net.Network
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.cookandroid.mvvm_ex2.data.repository.NetworkState

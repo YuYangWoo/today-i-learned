@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".single_movie_details.SingleMovie"
+    tools:context=".ui.single_movie_details.SingleMovie"
     >
 
     <LinearLayout

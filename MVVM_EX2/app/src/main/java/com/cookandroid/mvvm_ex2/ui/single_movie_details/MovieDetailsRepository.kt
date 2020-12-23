@@ -1,4 +1,4 @@
-package com.cookandroid.mvvm_ex2.single_movie_details
+package com.cookandroid.mvvm_ex2.ui.single_movie_details
 
 import androidx.lifecycle.LiveData
 import com.cookandroid.mvvm_ex2.data.api.TheMovieDBInterface
