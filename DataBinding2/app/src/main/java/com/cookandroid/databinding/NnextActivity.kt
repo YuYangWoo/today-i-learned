@@ -1,10 +1,10 @@
 package com.cookandroid.databinding
 
-import android.app.Application
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.cookandroid.databinding.base.BaseActivity
 import com.cookandroid.databinding.databinding.ActivityNnextBinding
 
 class NnextActivity : BaseActivity<ActivityNnextBinding>(R.layout.activity_nnext) {

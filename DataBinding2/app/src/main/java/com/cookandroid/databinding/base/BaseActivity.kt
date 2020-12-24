@@ -1,4 +1,4 @@
-package com.cookandroid.databinding
+package com.cookandroid.databinding.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

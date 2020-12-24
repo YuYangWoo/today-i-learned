@@ -1,4 +1,4 @@
-package com.cookandroid.databinding
+package com.cookandroid.databinding.item
 
 data class ProfileData(
     var name: String,

@@ -1,16 +1,17 @@
-package com.cookandroid.databinding
+package com.cookandroid.databinding.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.cookandroid.databinding.item.ProfileData
 import com.cookandroid.databinding.databinding.RcvListItemBinding
 
-class ProfileAdapter(private val context : Context) : RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {
+class ProfileAdapter(private val context: Context) : RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {
     var data = ArrayList<ProfileData>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         val binding = RcvListItemBinding.inflate(
-            LayoutInflater.from(context), parent, false)
+                LayoutInflater.from(context), parent, false)
 
         return ProfileViewHolder(binding)
     }
@@ -23,9 +24,9 @@ class ProfileAdapter(private val context : Context) : RecyclerView.Adapter<Profi
         return data.size
     }
 
-class ProfileViewHolder(private val binding: RcvListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun onBind(data : ProfileData) {
-        binding.user = data
+    class ProfileViewHolder(private val binding: RcvListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(data: ProfileData) {
+            binding.user = data
+        }
     }
-}
 }

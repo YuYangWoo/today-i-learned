@@ -1,4 +1,4 @@
-package com.cookandroid.databinding
+package com.cookandroid.databinding.bindingAdapter
 
 import android.util.Log
 import android.widget.ImageView

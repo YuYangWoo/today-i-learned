@@ -4,9 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cookandroid.databinding.Adapter.ProfileAdapter
+import com.cookandroid.databinding.base.BaseActivity
 import com.cookandroid.databinding.databinding.ActivityNextBinding
+import com.cookandroid.databinding.item.ProfileData
 
-class NextActivity:BaseActivity<ActivityNextBinding>(R.layout.activity_next) {
+class NextActivity: BaseActivity<ActivityNextBinding>(R.layout.activity_next) {
     var next = "livedata+viewmodel"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
