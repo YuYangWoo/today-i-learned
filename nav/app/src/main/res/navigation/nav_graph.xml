@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.cookandroid.navcontroller.MainFragment"
+        android:label="메인"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <argument
+            android:name="num"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.cookandroid.navcontroller.SecondFragment"
+        android:label="세컨"
+        tools:layout="@layout/fragment_second" >
+        <argument
+            android:name="message"
+            app:argType="string"
+            android:defaultValue="default" />
+    </fragment>
+</navigation>
