@@ -26,5 +26,9 @@
             android:name="message"
             app:argType="string"
             android:defaultValue="default" />
+        <argument
+            android:name="bba"
+            app:argType="string"
+            android:defaultValue="default" />
     </fragment>
 </navigation>

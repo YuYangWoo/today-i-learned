@@ -25,7 +25,8 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var message = args.message
-        Toast.makeText(context, message,Toast.LENGTH_SHORT).show()
+        var bbak = args.bba
+        Toast.makeText(context, bbak,Toast.LENGTH_SHORT).show()
         view.findViewById<TextView>(R.id.txt2).text = message
 
     }

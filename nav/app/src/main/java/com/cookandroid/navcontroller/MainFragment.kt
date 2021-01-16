@@ -29,7 +29,8 @@ class MainFragment : Fragment() {
 //            var action = MainFragmentDirections.actionMainFragmentToSecondFragment(5)
 //            view.findNavController().navigate(action)
             var ab = "SetMesage"
-            var action = MainFragmentDirections.actionMainFragmentToSecondFragment(ab)
+            var b = "빠끄"
+            var action = MainFragmentDirections.actionMainFragmentToSecondFragment(ab,b)
             view.findNavController().navigate(action)
         }
     }

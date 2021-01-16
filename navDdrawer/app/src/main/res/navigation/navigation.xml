@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/blankFragment">
+
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.cookandroid.navdrawer.MainFragment"
+        android:label="메인화면"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_blankFragment_to_secondFragment"
+            app:destination="@id/second" />
+    </fragment>
+    <fragment
+        android:id="@+id/second"
+        android:name="com.cookandroid.navdrawer.SecondFragment"
+        android:label="두번재 화면"
+        tools:layout="@layout/fragment_second" />
+</navigation>
