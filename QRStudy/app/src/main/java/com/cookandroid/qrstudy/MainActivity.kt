@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setTimerAndQRCode(number: String) {
-
-
         Glide.with(this)
                 .load(
                         QRCodeWriter().encode(

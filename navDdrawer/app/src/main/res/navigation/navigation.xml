@@ -13,10 +13,17 @@
         <action
             android:id="@+id/action_blankFragment_to_secondFragment"
             app:destination="@id/second" />
+        <action
+            android:id="@+id/action_main_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
     </fragment>
     <fragment
         android:id="@+id/second"
         android:name="com.cookandroid.navdrawer.SecondFragment"
         android:label="두번재 화면"
         tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.cookandroid.navdrawer.ThirdFragment"
+        android:label="ThirdFragment" />
 </navigation>
