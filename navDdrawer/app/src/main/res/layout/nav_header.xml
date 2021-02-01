@@ -18,12 +18,12 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="#000000"
-        android:text="Bong Can Do"/>
+        android:text="YangDroid"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:textColor="#EB554C4C"
-        android:text="tistory.bongcando.com"/>
+        android:text="yang-droid.tistory.com"/>
 </LinearLayout>

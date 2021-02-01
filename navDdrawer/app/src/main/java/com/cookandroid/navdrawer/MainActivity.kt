@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main )
         binding.main = this
         navController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.blankFragment,R.id.second),binding.drawer)
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.main,R.id.second),binding.drawer)
         initToolbar()
         initNavigationView()
 

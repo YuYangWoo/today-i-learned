@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id = "@+id/main"
+        android:title="메인화면"></item>
 <item android:id = "@+id/second"
     android:title="두번재 프래그먼트"></item>
 </menu>
