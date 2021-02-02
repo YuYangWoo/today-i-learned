@@ -22,5 +22,5 @@ fun main() = runBlocking {
 Cancel() 할 수 있다. 코루틴에서 협조적인 방법을 제공해줘야함.
 방법은 2개
 suspend function사용과 isActive를 체크해서 캔슬해준다.
-Timeout withTimeout과 withTimeoutOrNull 
+Timeout withTimeout과 withTimeoutOrNull
  */
