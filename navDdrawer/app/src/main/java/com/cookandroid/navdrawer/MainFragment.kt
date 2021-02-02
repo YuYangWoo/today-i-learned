@@ -17,7 +17,7 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_main, container, false)
         view.findViewById<Button>(R.id.btnGo).setOnClickListener {
-          var action =  MainFragmentDirections.actionMainToThirdFragment()
+          var action =  MainFragmentDirections.actionMainToThirdFragment("빠끄")
             findNavController().navigate(action)
         }
         return view

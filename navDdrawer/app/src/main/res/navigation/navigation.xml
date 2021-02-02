@@ -25,5 +25,11 @@
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.cookandroid.navdrawer.ThirdFragment"
-        android:label="ThirdFragment" />
+        android:label="ThirdFragment" >
+        <argument
+            android:name="msg"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+    <action android:id="@+id/action_global_thirdFragment" app:destination="@id/thirdFragment" />
 </navigation>
