@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fisrst SpringBoot Project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#button01").click(function () {
+                $.ajax({
+                    url: "http://localhost:8080/without",
+                    type: 'GET',
+                    success: function (result) {
+                        alert("result : " + result);
+                    }
+                });
+            });
+
+            $("#button02").click(function () {
+                $.ajax({
+                    url: "http://localhost:8080/with",
+                    type: 'GET',
+                    success: function (result) {
+                        alert("result : " + result + "\nresult.name : " + result.name);
+                    }
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+<h1>Hello World!</h1>
+<button id="button01">Call without content-type</button>
+<br>
+<button id="button02">Call with content-type</button>
+</body>
+</html>
