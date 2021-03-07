@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        request.requestHttp()
+        request.requestHttp(findViewById(R.id.txt))
 
     }
 }
