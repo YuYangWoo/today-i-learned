@@ -1,15 +1,26 @@
 package com.example.client
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.util.Log
+import com.example.client.databinding.ActivityMainBinding
+import org.json.JSONObject
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-        request.requestHttp(findViewById(R.id.txt))
+
+    override fun init() {
+        super.init()
+
+        binding.btnJson.setOnClickListener {
+            JsonRequest.requestHttp(binding.txt)
+        }
+
+        binding.btnFormData.setOnClickListener {
+            UrlenRequest.requestHttp(binding.txt)
+        }
+
+        binding.btnXWWW.setOnClickListener {
+            UrlenRequest.requestHttp(binding.txt)
+        }
 
     }
 }
