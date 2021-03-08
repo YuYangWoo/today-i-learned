@@ -1,8 +1,9 @@
 package com.example.client
 
-import android.util.Log
 import com.example.client.databinding.ActivityMainBinding
-import org.json.JSONObject
+import com.example.client.singleton.FormDataRequest
+import com.example.client.singleton.JsonRequest
+import com.example.client.singleton.UrlenRequest
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -15,7 +16,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
 
         binding.btnFormData.setOnClickListener {
-            UrlenRequest.requestHttp(binding.txt)
+            FormDataRequest.requestHttp(binding.txt)
         }
 
         binding.btnXWWW.setOnClickListener {

@@ -3,12 +3,13 @@ package com.example.boot.contorller
 import com.example.boot.Account
 import com.example.boot.model.MakeAccount
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
 import javax.servlet.http.HttpServletRequest
 
 @RestController
 public class HelloController {
 
-    // 이걸로 받아서 가공할께. 이런말.
+    // Receive x-www-urlencoded
     @RequestMapping(
         value = ["/urlen"],
         name = "urlen",
@@ -19,37 +20,33 @@ public class HelloController {
         @RequestParam user_id: String,
         user_password: String,
         req: HttpServletRequest
-    ): Account { //Content-Type에 대한 정의를 추가.
+    ): Account {
         var params = req.getParameter("user_id")
 
         return (MakeAccount(user_id, user_password).json())
     }
 
-    // 이걸로 받아서 가공할께. 이런말.
+    // Receive form-data
     @RequestMapping(
         value = ["/form"],
         name = "form",
-        method = [RequestMethod.POST],
-        produces = ["application/json; charset=UTF8"]
+        method = [RequestMethod.POST]
     )
+    @ResponseBody
     fun formType(
-        @RequestParam user_id: String,
-        user_password: String,
-        req: HttpServletRequest
-    ): Account { //Content-Type에 대한 정의를 추가.
-        var params = req.getParameter("user_id")
-
-        return (MakeAccount(user_id, user_password).json())
+        @RequestParam("file") file: MultipartFile
+    ) {
+        print(file.originalFilename)
     }
 
-    // 이걸로 받아서 가공할께. 이런말.
+    // Receive Json
     @RequestMapping(
         value = ["/json"],
         name = "json",
         method = [RequestMethod.POST],
         produces = ["application/json; charset=UTF8"]
     )
-    fun jsonType(@RequestBody user: Map<String, String>): Account { // Content-Type에 대한 정의를 추가.
+    fun jsonType(@RequestBody user: Map<String, String>): Account {
         return (MakeAccount(user["user_id"].toString(), user["user_password"].toString()).json())
     }
 
