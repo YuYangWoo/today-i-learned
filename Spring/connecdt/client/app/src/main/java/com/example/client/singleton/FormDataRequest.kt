@@ -21,6 +21,7 @@ object FormDataRequest {
         var file = File("android.resource://com.example.client/drawable/icon")
         var job = CoroutineScope(Dispatchers.IO).launch {
             var url = URL("http://10.0.2.2:8080/form")
+
             var conn = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "POST"
                 setRequestProperty(
@@ -34,13 +35,15 @@ object FormDataRequest {
             }
 
             outputStream = conn.outputStream
-            writer = PrintWriter(OutputStreamWriter(outputStream, charset), true)
-            writer!!.append("--$boundary").append(LINE_FEED);
-            writer!!.append("Content-Disposition: form-data; name=\"name\"").append(LINE_FEED);
-            writer!!.append("Content-Type: text/plain; charset=$charset").append(LINE_FEED);
-            writer!!.append(LINE_FEED);
-            writer!!.append("유양우").append(LINE_FEED);
-            writer!!.flush();
+            writer = PrintWriter(OutputStreamWriter(outputStream, charset), true).apply {
+                append("--$boundary").append(LINE_FEED);
+                append("Content-Disposition: form-data; name=\"name\"").append(LINE_FEED);
+                append("Content-Type: text/plain; charset=$charset").append(LINE_FEED);
+                append(LINE_FEED);
+                append("유양우").append(LINE_FEED);
+                flush();
+            }
+
 
 //            /** 파일 데이터를 넣는 부분**/
 //            writer!!.append("--$boundary").append(LINE_FEED);

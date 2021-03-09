@@ -12,7 +12,9 @@ import java.net.*
 
 object UrlenRequest {
     private var a: String = ""
-    fun requestHttp(txt: TextView) = runBlocking {
+    fun requestHttp(txt: TextView)  {
+
+        CoroutineScope(Dispatchers.Main).launch {
 
         var job = CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -53,15 +55,15 @@ object UrlenRequest {
                         }
                     }
                     Log.d("test", "값:$a")
-                    txt.text = a
+
                 }
             } catch (e: Exception) {
                 Log.d("test", e.toString())
                 Log.d("test", "연결 실패 !!")
             }
         }
-
-        job.join()
-
+            job.join()
+            txt.text = a
+        }
     }
 }
