@@ -3,6 +3,7 @@ package com.example.boot.contorller
 import com.example.boot.Account
 import com.example.boot.model.MakeAccount
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
 import javax.servlet.http.HttpServletRequest
 
 @RestController
@@ -34,9 +35,10 @@ public class HelloController {
     @ResponseBody
     fun formType(
     @RequestParam name: String,
-//    @RequestParam("file") file: MultipartFile
-    ) {
-        print(name)
+    @RequestParam file: MultipartFile
+    ): String{
+    println("연결성공! : $name 이고 파일전송 성공: $file")
+        return name
     }
 
     // Receive Json

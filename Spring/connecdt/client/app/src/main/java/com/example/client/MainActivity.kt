@@ -1,12 +1,14 @@
 package com.example.client
 
+
+import android.content.ContentResolver
 import android.net.Uri
-import android.util.Log
 import com.bumptech.glide.Glide
 import com.example.client.databinding.ActivityMainBinding
 import com.example.client.singleton.FormDataRequest
 import com.example.client.singleton.JsonRequest
 import com.example.client.singleton.UrlenRequest
+
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -15,7 +17,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.init()
 //var a =  Uri.parse("android.resource://com.example.client/drawable/icon")
 
-        Glide.with(this).load(("android.resource://com.example.client/drawable/icon")).into(binding.img)
+
 
 
         binding.btnJson.setOnClickListener {
@@ -23,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
 
         binding.btnFormData.setOnClickListener {
-            FormDataRequest.test()
+            FormDataRequest.test(this, binding)
         }
 
         binding.btnXWWW.setOnClickListener {

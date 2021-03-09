@@ -12,7 +12,6 @@ object JsonRequest {
     private var a: String = ""
     fun requestHttp(txt: TextView) {
 
-
         CoroutineScope(Dispatchers.Main).launch {
 
             var job: Job = CoroutineScope(Dispatchers.IO).launch {
@@ -62,7 +61,9 @@ object JsonRequest {
                     Log.d("test", "연결 실패 !!")
                 }
             }
+
             job.join()
+
             txt.text = a
         }
     }
