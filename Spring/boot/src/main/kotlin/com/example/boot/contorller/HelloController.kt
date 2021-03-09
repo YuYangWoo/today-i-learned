@@ -3,7 +3,6 @@ package com.example.boot.contorller
 import com.example.boot.Account
 import com.example.boot.model.MakeAccount
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.multipart.MultipartFile
 import javax.servlet.http.HttpServletRequest
 
 @RestController
@@ -34,9 +33,10 @@ public class HelloController {
     )
     @ResponseBody
     fun formType(
-        @RequestParam("file") file: MultipartFile
+    @RequestParam name: String,
+//    @RequestParam("file") file: MultipartFile
     ) {
-        print(file.originalFilename)
+        print(name)
     }
 
     // Receive Json
