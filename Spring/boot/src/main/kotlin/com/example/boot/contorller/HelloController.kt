@@ -52,4 +52,19 @@ public class HelloController {
         return (MakeAccount(user["user_id"].toString(), user["user_password"].toString()).json())
     }
 
+    // Receive x-www-urlencoded
+    @RequestMapping(
+        value = ["/login"],
+        name = "login",
+        method = [RequestMethod.POST],
+        produces = ["application/json; charset=UTF8"]
+    )
+    fun login(
+        @RequestParam user_id: String,
+        user_password: String
+    ): Account {
+
+        return (MakeAccount(user_id, user_password).json())
+    }
+
 }
