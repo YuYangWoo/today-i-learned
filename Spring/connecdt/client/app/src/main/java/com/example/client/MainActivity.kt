@@ -12,13 +12,8 @@ import com.example.client.singleton.UrlenRequest
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-
     override fun init() {
         super.init()
-//var a =  Uri.parse("android.resource://com.example.client/drawable/icon")
-
-
-
 
         binding.btnJson.setOnClickListener {
             JsonRequest.requestHttp(binding.txt)
@@ -33,4 +28,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
 
     }
+
 }
