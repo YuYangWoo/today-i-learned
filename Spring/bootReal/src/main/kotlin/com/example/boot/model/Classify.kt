@@ -20,4 +20,14 @@ class Classify() {
             InformationResponse(result = true, admin = false)
         }
     }
+
+    fun hashAdmin(info: HashMap<String, Any>): InformationResponse {
+        return if(info["name"] == "유양우") {
+            InformationResponse(result = true, admin = true)
+        }
+        else {
+            InformationResponse(result = true, admin = false)
+
+        }
+    }
 }
