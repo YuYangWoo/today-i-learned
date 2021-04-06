@@ -1,10 +1,11 @@
-package com.kaonsoft.simple_mvvm_ex1
+package com.kaonsoft.simple_mvvm_ex1.ui.main.view.activity
 
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.kaonsoft.simple_mvvm_ex1.base.BaseActivity
+import com.kaonsoft.simple_mvvm_ex1.R
+import com.kaonsoft.simple_mvvm_ex1.ui.base.BaseActivity
 import com.kaonsoft.simple_mvvm_ex1.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {

@@ -1,4 +1,4 @@
-package com.kaonsoft.simple_mvvm_ex1.network
+package com.kaonsoft.simple_mvvm_ex1.data.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

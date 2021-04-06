@@ -6,7 +6,7 @@
     <data>
         <variable
             name="main"
-            type="com.kaonsoft.simple_mvvm_ex1.MainActivity" />
+            type="com.kaonsoft.simple_mvvm_ex1.ui.main.view.activity.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package com.kaonsoft.simple_mvvm_ex1.base
+package com.kaonsoft.simple_mvvm_ex1.ui.base
 
 import android.content.Context
 import android.os.Bundle

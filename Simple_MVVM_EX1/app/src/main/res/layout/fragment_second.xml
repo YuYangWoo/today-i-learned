@@ -4,21 +4,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
-            name="mainF"
-            type="com.kaonsoft.simple_mvvm_ex1.ui.main.view.fragment.MainFragment" />
+            name="second"
+            type="com.kaonsoft.simple_mvvm_ex1.ui.main.view.fragment.SecondFragment" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
-   android:layout_width="match_parent"
+     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
     <TextView
         android:id="@+id/txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="185dp"
+        android:layout_marginStart="195dp"
+        android:layout_marginTop="282dp"
+        android:layout_marginEnd="158dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,9 +27,9 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="172dp"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="159dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
