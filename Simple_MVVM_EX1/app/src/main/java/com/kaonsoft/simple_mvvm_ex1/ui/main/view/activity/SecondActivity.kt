@@ -11,7 +11,7 @@ import com.kaonsoft.simple_mvvm_ex1.ui.main.viewmodel.MainActivityViewModel
 
 class SecondActivity : BaseActivity<ActivitySecondBinding>(R.layout.activity_second) {
     private val viewModel by lazy {
-        ViewModelProvider(MainActivity).get(MainActivityViewModel::class.java)
+        ViewModelProvider(this@SecondActivity).get(MainActivityViewModel::class.java)
     }
     override fun init() {
         super.init()
