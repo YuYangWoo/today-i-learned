@@ -10,6 +10,8 @@ import com.kaonsoft.simple_mvvm_ex1.data.model.RoomsData
 import com.kaonsoft.simple_mvvm_ex1.databinding.FragmentMainBinding
 import com.kaonsoft.simple_mvvm_ex1.ui.main.viewmodel.MainActivityViewModel
 
+//import com.kaonsoft.simple_mvvm_ex1.ui.main.viewmodel.MainActivityViewModel
+
 class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
     private val viewModel by lazy {

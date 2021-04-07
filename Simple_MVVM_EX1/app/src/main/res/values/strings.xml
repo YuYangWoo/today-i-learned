@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Simple_MVVM_EX1</string>
+    <string name="main_name">가천열람실</string>
+    <string name="option_name">옵션</string>
+    <string name="login">로그인</string>
+    <string name="auto_login">자동로그인</string>
+    <string name="choose_or_reservation">자리 선택/예약</string>
+    <string name="confirm_seat">자리 확정</string>
+    <string name="confirm_my_seat">나의 자리 확인</string>
+    <string name="confirm_internet">인터넷 연결을 확인해주세요.</string>
+    <string name="confirm_account">계정을 확인해주세요.</string>
+    <string name="confirm_id">아이디와 비밀번호를 확인하세요.</string>
+    <string name="server_error">서버 에러입니다.</string>
+    <string name="confirm_login">님 로그인 되었습니다.</string>
+    <string name="reservation_seat">자리예약</string>
+    <string name="qr">QR리더</string>
+    <string name="my_seat">나의 자리</string>
+    <string name="seat_location">장소 :</string>
+    <string name="seat_number">자리 번호:</string>
+    <string name="seat_time">예약 시간:</string>
+    <string name="extend">연장</string>
+    <string name="return_seat">반납</string>
+    <string name="choose_seat">원하는 좌석을 선택해주세요</string>
+    <string name="start_time">시작시간</string>
+    <string name="end_time">종료시간</string>
 </resources>

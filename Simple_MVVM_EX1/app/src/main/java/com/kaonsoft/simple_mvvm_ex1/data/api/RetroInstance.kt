@@ -4,10 +4,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetroInstance {
-        val baseUrl = "http://3.34.174.56:8080"
-
-        fun getRetroInstance(): Retrofit {
-            return Retrofit.Builder()
-                .baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build()
-        }
+    val baseUrl = "http://3.34.174.56:8080"
+    val client = BaseRetro.getClient(baseUrl).create(RetroService::class.java)
 }

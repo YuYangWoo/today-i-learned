@@ -1,14 +1,12 @@
 package com.kaonsoft.simple_mvvm_ex1.ui.main.view.fragment
 
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.kaonsoft.simple_mvvm_ex1.R
 import com.kaonsoft.simple_mvvm_ex1.data.model.RoomsData
 import com.kaonsoft.simple_mvvm_ex1.databinding.FragmentSecondBinding
 import com.kaonsoft.simple_mvvm_ex1.ui.base.BaseFragment
-import com.kaonsoft.simple_mvvm_ex1.ui.main.view.activity.SecondActivity
 import com.kaonsoft.simple_mvvm_ex1.ui.main.viewmodel.MainActivityViewModel
 
 class SecondFragment : BaseFragment<FragmentSecondBinding>(R.layout.fragment_second) {
@@ -25,7 +23,6 @@ class SecondFragment : BaseFragment<FragmentSecondBinding>(R.layout.fragment_sec
 
     private fun btn() {
         binding.btn.setOnClickListener {
-            requireContext().startActivity(Intent(requireContext(), SecondActivity::class.java))
         }
     }
     private fun initViewModel() {

@@ -1,5 +1,6 @@
 package com.kaonsoft.simple_mvvm_ex2.ui.main.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,13 +16,19 @@ class MainViewModel(private val githubRepository: GithubRepository) : ViewModel(
     fun requestGithubRepositories(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
             githubRepository.getRepositories(query).let { response ->
-                if(response.isSuccessful) {
-                    response.body().let {
-                        _githubRepositories.postValue(it!!.items)
+                when {
+                    response.isSuccessful -> {
+                        response.body().let {
+                            _githubRepositories.postValue(it!!.items)
+                        }
+                        Log.d("TAG", "성공할 경우")
                     }
-                }
-                else {
-
+                    response.code() != 200 -> {
+                        Log.d("TAG", "연결실패")
+                    }
+                    else -> {
+                        Log.d("TAG", "실패할 경우")
+                    }
                 }
             }
         }

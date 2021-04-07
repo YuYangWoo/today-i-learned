@@ -15,8 +15,7 @@ class MainActivityViewModel : ViewModel() {
 
     fun apiRooms(college: HashMap<String, Any>) {
         viewModelScope.launch(Dispatchers.IO) {
-            val retroInstance = RetroInstance.getRetroInstance().create(RetroService::class.java)
-            val response = retroInstance.getRooms(college)
+            val response =  RetroInstance.client.getRooms(college)
             roomsData.postValue(response.body())
         }
     }
