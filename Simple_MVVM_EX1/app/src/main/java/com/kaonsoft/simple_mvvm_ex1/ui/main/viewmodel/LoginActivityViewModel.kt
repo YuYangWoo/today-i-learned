@@ -20,7 +20,7 @@ class LoginActivityViewModel(private val loginRepository: LoginRepository) : Vie
     fun loginRepository(data: HashMap<String, Any>) {
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             loginRepository.login(data).let {
-                    _loginData.postValue(it)
+                    _loginData.postValue(it.body())
             }
         }
     }
@@ -32,4 +32,8 @@ class LoginActivityViewModel(private val loginRepository: LoginRepository) : Vie
         Log.d("TAG", t.toString())
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("TAG", "oncleared")
+    }
 }

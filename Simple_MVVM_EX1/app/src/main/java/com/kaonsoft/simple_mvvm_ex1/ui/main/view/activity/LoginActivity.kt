@@ -34,18 +34,17 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         btnLogin()
         checkBox()
         initViewModel()
-
     }
 
     private fun checkAutoLogin() {
-        // 로그인요청을해주고 result가 true면 그때넘어가야함
-        // 로그인할 때마다 가져온거.
-        // 체크되어있다면 메인화면으로
         if (MySharedPreferences.getCheck(this)) {
             binding.edtId.setText(MySharedPreferences.getUserId(this))
             binding.edtPassword.setText(MySharedPreferences.getUserPass(this))
             binding.checkBox.isChecked = true
-            loginApi()
+            var input = HashMap<String, Any>()
+            input["id"] = binding.edtId.text.toString()
+            input["password"] = binding.edtPassword.text.toString()
+            viewModel.loginRepository(input)
         }
     }
 
@@ -63,12 +62,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             }
         }
     }
+
     // 체크박스가 체크되어있는지 체크되어 있지 않은지
     private fun checkBox() {
         binding.checkBox.setOnCheckedChangeListener { compoundButton, checked ->
             if (checked) {
+                Log.d("TAG", "체크됨")
                 MySharedPreferences.setCheck(this, binding.checkBox.isChecked)
             } else {
+                Log.d("TAG", "체크안됨")
                 MySharedPreferences.setCheck(this, binding.checkBox.isChecked)
                 MySharedPreferences.clearUser(this)
             }
@@ -90,6 +92,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             show()
         }
+        // SharedPreference id 비번 강제저장하므로 체크바만 체크하고 꺼도 아디 비번이 저장되는현상 발생.
         if (userData.account.type == "STUDENT" && userData.result) {
             toast(this@LoginActivity, "${userData.account.id}님 ${resources.getString(R.string.confirm_login)}")
             MySharedPreferences.setUserId(this@LoginActivity, binding.edtId.text.toString())
