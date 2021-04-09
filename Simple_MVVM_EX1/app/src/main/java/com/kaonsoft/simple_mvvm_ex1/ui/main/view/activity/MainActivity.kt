@@ -33,13 +33,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-//        initViewModel()
+
     }
 
-//    private fun initViewModel() {
-//        val viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-//        viewModel.getImageObserver().observe(this, Observer<Bitmap> {
-//            findViewById<ImageView>(R.id.imageView).setImageBitmap(it)
-//        })
-//        viewModel.makeApiCall("4")
-//    }

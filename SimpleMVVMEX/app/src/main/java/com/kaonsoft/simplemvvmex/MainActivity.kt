@@ -2,6 +2,7 @@ package com.kaonsoft.simplemvvmex
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -57,16 +58,21 @@ class MainActivity : AppCompatActivity() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
+                        Log.d("TAG", "success")
+
                         recyclerView.visibility = View.VISIBLE
                         progressBar.visibility = View.GONE
                         resource.data?.let { users -> retrieveList(users) }
                     }
                     Status.ERROR -> {
+                        Log.d("TAG", "error")
+
                         recyclerView.visibility = View.VISIBLE
                         progressBar.visibility = View.GONE
                         Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
+                        Log.d("TAG", "loading")
                         progressBar.visibility = View.VISIBLE
                         recyclerView.visibility = View.GONE
                     }
