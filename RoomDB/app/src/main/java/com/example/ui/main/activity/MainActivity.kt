@@ -15,14 +15,16 @@ import com.example.ui.adapter.WordListAdapter
 import com.example.ui.viewmodel.WordViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.activity.viewModels
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val newWordActivityRequestCode = 1
-    private val wordViewModel: WordViewModel by viewModels {
-        WordViewModel.WordViewModelFactory((application as MyApplication).repository)
-    }
+//    private val wordViewModel: WordViewModel by viewModels {
+//        WordViewModel.WordViewModelFactory((application as MyApplication).repository)
+//    }
 
+    private val wordViewModel: WordViewModel by viewModel()
     override fun init() {
         super.init()
         val adapter = WordListAdapter()
