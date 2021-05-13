@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "441277222780",
+    "project_id": "gachonroom",
+    "storage_bucket": "gachonroom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441277222780:android:4e0b5afe6e59624af2def9",
+        "android_client_info": {
+          "package_name": "com.example.fcm_push"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441277222780-d3do8emfahlhvmsu3a01rvvpd89k83em.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fcm_push",
+            "certificate_hash": "1a38e9c7e775930809eb61061cc387405b636267"
+          }
+        },
+        {
+          "client_id": "441277222780-hang6khqplb42sklgvgv6f9a7i50tbn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoA6dEs0m1B_uDVTN5enzH5YwiwITFNeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441277222780-hang6khqplb42sklgvgv6f9a7i50tbn1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
