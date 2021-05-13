@@ -1,7 +1,5 @@
 package com.example.data.di
 
-import androidx.room.Room
-import com.example.data.model.WordDao
 import com.example.data.model.WordRoomDatabase
 import com.example.data.repository.WordRepository
 import com.example.ui.viewmodel.WordViewModel

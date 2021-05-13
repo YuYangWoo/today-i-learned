@@ -2,6 +2,7 @@ package com.example.ui.main.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,24 +16,37 @@ import com.example.ui.adapter.WordListAdapter
 import com.example.ui.viewmodel.WordViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val newWordActivityRequestCode = 1
-//    private val wordViewModel: WordViewModel by viewModels {
-//        WordViewModel.WordViewModelFactory((application as MyApplication).repository)
-//    }
-
     private val wordViewModel: WordViewModel by viewModel()
+    val adapter = WordListAdapter()
     override fun init() {
         super.init()
-        val adapter = WordListAdapter()
+
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(this)
+
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                adapter.removeTask(viewHolder.adapterPosition)
+            }
+
+        }).apply {
+            attachToRecyclerView(binding.recyclerview)
+        }
         wordViewModel.allWords.observe(this, Observer { words ->
             words.let {
-                adapter.submitList(it)
+                adapter.data = wordViewModel.allWords.value as ArrayList<Word>
+                adapter.notifyDataSetChanged()
+                Log.d("TAG", wordViewModel.allWords.value.toString())
             }
         })
 
