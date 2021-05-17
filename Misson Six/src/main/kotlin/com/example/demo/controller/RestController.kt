@@ -38,7 +38,7 @@ class RestController {
     /**
      * Hash 사용
      * 요청 : QueryString id=yuyw0712&pw=12345
-     * 결과 : id=yuyw0712&pw=12345
+     * 결과 : {pw=12345, id=yuyw0712}
      */
     @PostMapping(path = ["/5"])
     fun httpServletRequestPostHash(request: HttpServletRequest) {
@@ -51,7 +51,7 @@ class RestController {
     /**
      * VO사용
      * 요청 : QueryString id=yuyw0712&pw=12345
-     * 결과 : id=yuyw0712&pw=12345
+     * 결과 : Info(id=yuyw0712, pw=12345)
      */
     @PostMapping(path = ["/6"])
     fun httpServletRequestPostVO(request: HttpServletRequest) {
@@ -155,7 +155,7 @@ class RestController {
     /**
      * VO사용
      * 요청 : form-data id=yuyw0712 pw=12345
-     * 결과 : 500 Error
+     * 결과 : Info(id=yuyw0712, pw=qw123)
      */
     @PostMapping(path = ["/22"])
     fun urlEncodedPostVO(@RequestParam id: String, @RequestParam pw: String) {
@@ -165,27 +165,49 @@ class RestController {
         println(response)
     }
 
-    // Hash
+    /**
+     * Hash 사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : {pw=12345, id=yuyw0712}
+     */
     @GetMapping(path = ["/25"])
-    fun jsonGetHash(request: HttpServletRequest) {
-
+    fun jsonGetHash(@RequestBody info: Info) {
+        var response = HashMap<String, Any>()
+        response["id"] = info.id
+        response["pw"] = info.pw
+        println(response)
     }
 
-    // VO
+    /**
+     * VO사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : Info(id=yuyw0712, pw=12345)
+     */
     @GetMapping(path = ["/26"])
-    fun jsonGetVO(request: HttpServletRequest) {
-
+    fun jsonGetVO(@RequestBody info: Info) {
+        println(info)
     }
 
-    // Hash
+    /**
+     * Hash 사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : {pw=12345, id=yuyw0712}
+     */
     @PostMapping(path = ["/29"])
-    fun jsonPostHash(request: HttpServletRequest) {
-
+    fun jsonPostHash(@RequestBody info: Info) {
+        var response = HashMap<String, Any>()
+        response["id"] = info.id
+        response["pw"] = info.pw
+        println(response)
     }
 
-    // VO
+    /**
+     * VO사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : Info(id=yuyw0712, pw=12345)
+     */
     @PostMapping(path = ["/30"])
-    fun jsonPostVO(request: HttpServletRequest) {
-
+    fun jsonPostVO(@RequestBody info: Info) {
+        println(info)
     }
 }

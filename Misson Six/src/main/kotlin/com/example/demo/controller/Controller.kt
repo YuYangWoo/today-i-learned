@@ -144,39 +144,72 @@ class Controller {
         println(response)
     }
 
-    // Hash
+    /**
+     * Hash 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 400 Error
+     */
     @PostMapping(path = ["/23"])
-    fun urlEncodedPostHash(request: HttpServletRequest){
-
+    fun urlEncodedPostHash(@RequestParam id: String, @RequestParam pw: String) {
+        var response = HashMap<String, Any>()
+        response["id"] = id
+        response["pw"] = pw
+        println(response)
     }
 
-    // VO
+    /**
+     * VO 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 400 Error
+     */
     @PostMapping(path = ["/24"])
-    fun urlEncodedPostVO(request: HttpServletRequest){
-
+    fun urlEncodedPostVO(@RequestParam id: String, @RequestParam pw: String) {
+        var response = Info()
+        response.id = id
+        response.pw = pw
+        println(response)
     }
 
-    // Hash
+    /**
+     * Hash 사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : 500 Error
+     */
     @GetMapping(path = ["/27"])
-    fun jsonGetHash(request: HttpServletRequest){
-
+    fun jsonGetHash(@RequestBody info: Info){
+        println(info)
     }
 
-    // VO
+    /**
+     * VO 사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : 500 Error
+     */
     @GetMapping(path = ["/28"])
-    fun jsonGetVO(request: HttpServletRequest){
-
+    fun jsonGetVO(@RequestBody info: Info){
+        println(info)
     }
 
-    // Hash
+    /**
+     * Hash 사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : 400 Error
+     */
     @PostMapping(path = ["/31"])
-    fun jsonPostHash(request: HttpServletRequest){
-
+    fun jsonPostHash(@RequestBody info: Info){
+        var response = HashMap<String, Any>()
+        response["id"] = info.id
+        response["pw"] = info.pw
+        println(response)
     }
 
-    // VO
+    /**
+     * VO 사용
+     * 요청 : json id=yuyw0712 pw=12345
+     * 결과 : 400 Error
+     */
     @PostMapping(path = ["/32"])
-    fun jsonPostVO(request: HttpServletRequest){
-
+    fun jsonPostVO(@RequestBody info: Info){
+        println(info)
     }
 }
