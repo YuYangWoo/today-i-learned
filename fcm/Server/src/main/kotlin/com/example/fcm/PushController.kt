@@ -15,7 +15,7 @@ class PushController {
 
     @GetMapping("/push")
     private fun pushTransfer() {
-        var deviceToken = "f_eo53zCQh-Ndbd6AdzGRm:APA91bHCHZGhOGrve8QDre1wguBJ3oS_sd-zOmSSfl3eJ-zoX0BLzuA7Rt-U66WW8WrfhZ-eh1Lyng66gCpdJ_XukkOmFmq08kLo6D9HgzD-EzRcaSOZsINx472AQhhjaZzTjWo-qlPf"
+        var deviceToken = "fvp6fFW6SfOhZAMqnkHHlG:APA91bHrJu5vmmpO0KM_EgkrxJIPMSQB-h1WbfsadcLof0VeLB2rXKdigmYrM5uG9eHunwLigm2PXFkbMCf1l_NcitOuqGpcnP9FnwK0V_0c5uhipz-Swrs6_q6NWritoi_wlwxs7Ixv"
         var client = OkHttpClient.Builder().build()
         val notification = JSONObject()
         notification.put("body", "반납 15분 전입니다")
