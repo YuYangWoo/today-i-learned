@@ -28,7 +28,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
     // 새로운 FCM 메시지가 있을 때 메세지를 받는다
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        // 앱이 포어그라운드 상태에서 Notificiation을 받는 경우
+//        var body = remoteMessage.data["data"]
+//        var title = remoteMessage.data["title"]
+//        sendNotification(body,title)
+        Log.d("TAG", remoteMessage.notification.toString())
         if(remoteMessage.notification != null) {
             sendNotification(remoteMessage.notification?.body, remoteMessage.notification?.title)
         }

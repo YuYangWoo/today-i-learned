@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets
 import javax.servlet.annotation.WebServlet
 import kotlin.collections.HashMap
 
-@RestController
+
 class MissionController {
 
     // Get방식 QueryString으로 데이터를 보낼 때
