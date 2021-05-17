@@ -2,10 +2,8 @@ package com.example.demo.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.*
+import java.io.IOException
 import javax.servlet.http.HttpServletRequest
 
 // ResponseBody X
@@ -60,46 +58,90 @@ class Controller {
      */
     @PostMapping(path = ["/8"])
     fun httpServletRequestPostVO(request: HttpServletRequest){
+        var response = Info()
+        response.id = request.getParameter("id")
+        response.pw = request.getParameter("pw")
+        println(response)
+    }
+
+    /**
+     * Hash 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 405 Error
+     */
+    @GetMapping(path = ["/11"])
+    @Throws(IOException::class)
+    fun formDataGetHash(request: HttpServletRequest){
         var response = HashMap<String, Any>()
         response["id"] = request.getParameter("id")
         response["pw"] = request.getParameter("pw")
         println(response)
     }
 
-    // Hash
-    @GetMapping(path = ["/11"])
-    fun formDataGetHash(request: HttpServletRequest){
-
-    }
-
-    // VO
+    /**
+     * VO 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 500 Error
+     */
     @GetMapping(path = ["/12"])
+    @Throws(IOException::class)
     fun formDataGetVO(request: HttpServletRequest){
-
+        var response = Info()
+        response.id = request.getParameter("id")
+        response.pw = request.getParameter("pw")
+        println(response)
     }
 
-    // Hash
+    /**
+     * Hash 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 500 Error
+     */
     @PostMapping(path = ["/15"])
-    fun formDataPostHash(request: HttpServletRequest){
-
+    fun formDataPostHash(id: String, pw: String){
+        var response = HashMap<String, Any>()
+        response["id"] = id
+        response["pw"] = pw
+        println(response)
     }
 
-    // VO
+    /**
+     * VO 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 500 Error
+     */
     @PostMapping(path = ["/16"])
-    fun formDataPostVO(request: HttpServletRequest){
-
+    fun formDataPostVO(id: String, pw: String){
+        var response = Info()
+        response.id = id
+        response.pw = pw
+        println(response)
     }
 
-    // Hash
+    /**
+     * Hash 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 400 Error
+     */
     @GetMapping(path = ["/19"])
-    fun urlEncodedGetHash(request: HttpServletRequest){
-
+    fun urlEncodedGetHash(@RequestParam id: String, @RequestParam pw: String){
+        var response = HashMap<String, Any>()
+        response["id"] = id
+        response["pw"] = pw
+        println(response)
     }
 
-    // VO
+    /**
+     * VO 사용
+     * 요청 : form-data id=yuyw0712 pw=12345
+     * 결과 : 400 Error
+     */
     @GetMapping(path = ["/20"])
-    fun urlEncodedGetVO(request: HttpServletRequest){
-
+    fun urlEncodedGetVO(@RequestParam id: String, @RequestParam pw: String){
+        var response = Info()
+        response.id = id
+        response.pw = pw
+        println(response)
     }
 
     // Hash
