@@ -32,7 +32,7 @@ public abstract class WordRoomDatabase : RoomDatabase() {
             // Add sample words.
             var word = Word("Hello")
             wordDao.insert(word)
-            word = Word("World!")
+            word = Word("Daou!")
             wordDao.insert(word)
         }
     }
