@@ -74,7 +74,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         wordViewModel.allWords.observe(this, Observer { words ->
             words.let {
                 wordAdapter.data = wordViewModel.allWords.value as ArrayList<Word>
-                wordAdapter.notifyDataSetChanged()
+                wordAdapter.submitList(wordViewModel.allWords.value as ArrayList<Word>)
+//                wordAdapter.notifyDataSetChanged()
                 Log.d("TAG", wordViewModel.allWords.value.toString())
             }
         })
