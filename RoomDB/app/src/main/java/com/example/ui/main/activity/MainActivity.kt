@@ -21,7 +21,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val newWordActivityRequestCode = 1
     private val wordViewModel: WordViewModel by viewModel()
     val wordAdapter = WordListAdapter()
-
     override fun init() {
         super.init()
         recyclerView()
@@ -75,7 +74,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             words.let {
                 wordAdapter.data = wordViewModel.allWords.value as ArrayList<Word>
                 wordAdapter.submitList(wordViewModel.allWords.value as ArrayList<Word>)
-                Log.d("TAG", wordViewModel.allWords.value.toString())
             }
         })
     }

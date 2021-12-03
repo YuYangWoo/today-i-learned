@@ -27,11 +27,6 @@ public abstract class WordRoomDatabase : RoomDatabase() {
 
         suspend fun populateDatabase(wordDao: WordDao) {
             wordDao.deleteAll()
-
-//            var word = Word("Hello")
-//            wordDao.insert(word)
-//            word = Word("Daou!")
-//            wordDao.insert(word)
         }
     }
 
