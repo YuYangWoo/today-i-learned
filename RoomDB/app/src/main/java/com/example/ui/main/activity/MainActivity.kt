@@ -73,7 +73,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         wordViewModel.allWords.observe(this, Observer { words ->
             words.let {
                 wordAdapter.data = wordViewModel.allWords.value as ArrayList<Word>
-                wordAdapter.submitList(wordViewModel.allWords.value as ArrayList<Word>)
+                wordAdapter.submitList(wordAdapter.data)
             }
         })
     }
