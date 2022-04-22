@@ -15,40 +15,42 @@ class PushController {
 
     @GetMapping("/push")
     private fun pushTransfer() {
-        var deviceToken = "fvp6fFW6SfOhZAMqnkHHlG:APA91bHrJu5vmmpO0KM_EgkrxJIPMSQB-h1WbfsadcLof0VeLB2rXKdigmYrM5uG9eHunwLigm2PXFkbMCf1l_NcitOuqGpcnP9FnwK0V_0c5uhipz-Swrs6_q6NWritoi_wlwxs7Ixv"
-        var client = OkHttpClient.Builder().build()
-        val notification = JSONObject()
-        notification.put("body", "반납 15분 전입니다")
-        notification.put("title", "반납알림")
-
-
-        var body = FormBody.Builder()
-            .add("to", deviceToken)
-            .add("project_id", senderId)
-            .add("notification", notification.toString())
-            .build()
-        println("formBody는 ${body.toString()}")
-        var request = Request.Builder()
-            .url("https://fcm.googleapis.com/fcm/send")
-            .addHeader("Authorization", "key=$apiKey")
-            .post(body)
-            .build()
-
-        println(request.toString())
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                print(e.toString() + "에러나땅 ㅠ")
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                if(response.isSuccessful) {
-                    print(  "$response.code 성공해땅! ")
-                }
-                else {
-                    print(response.body.toString())
-                }
-            }
-
-        })
+        val firebaseCloudMessageService = FirebaseCloudMessageService()
+        firebaseCloudMessageService.sendMessageTo("eS3FCiteRjKhIzm81e0RPo:APA91bHgjhZ81HxUhrNq8pLwDExc5dc6uovhCm9Nn-2ph7fA7f7Mi4m7TOUSzyCR92VeScerNp2IZAf7YZGcA6XjTXXjXNuzXGdnm3I5UgaW5JeNLXgg-QIMCB38ryPnH-Ct9hAWvlzC","제목", "내용" )
+//        var deviceToken = "eS3FCiteRjKhIzm81e0RPo:APA91bHgjhZ81HxUhrNq8pLwDExc5dc6uovhCm9Nn-2ph7fA7f7Mi4m7TOUSzyCR92VeScerNp2IZAf7YZGcA6XjTXXjXNuzXGdnm3I5UgaW5JeNLXgg-QIMCB38ryPnH-Ct9hAWvlzC"
+//        var client = OkHttpClient.Builder().build()
+//        val notification = JSONObject()
+//        notification.put("body", "반납 15분 전입니다")
+//        notification.put("title", "반납알림")
+//
+//
+//        var body = FormBody.Builder()
+//            .add("to", deviceToken)
+//            .add("project_id", senderId)
+//            .add("notification", notification.toString())
+//            .build()
+//        println("formBody는 ${body.toString()}")
+//        var request = Request.Builder()
+//            .url("https://fcm.googleapis.com/fcm/send")
+//            .addHeader("Authorization", "key=$apiKey")
+//            .post(body)
+//            .build()
+//
+//        println(request.toString())
+//        client.newCall(request).enqueue(object : Callback {
+//            override fun onFailure(call: Call, e: IOException) {
+//                print(e.toString() + "에러나땅 ㅠ")
+//            }
+//
+//            override fun onResponse(call: Call, response: Response) {
+//                if(response.isSuccessful) {
+//                    print(  "$response.code 성공해땅! ")
+//                }
+//                else {
+//                    print(response.body.toString())
+//                }
+//            }
+//
+//        })
     }
 }
