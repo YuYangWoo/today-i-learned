@@ -23,24 +23,21 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         Log.d(TAG, token)
     }
 
-    private fun sendRegistrationToServer(token: String) {
-
-    }
     // 새로운 FCM 메시지가 있을 때 메세지를 받는다
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-//        var body = remoteMessage.data["data"]
-//        var title = remoteMessage.data["title"]
-//        sendNotification(body,title)
-        Log.d("TAG", remoteMessage.notification.toString())
-        if(remoteMessage.notification != null) {
-            sendNotification(remoteMessage.notification?.body, remoteMessage.notification?.title)
+        if(remoteMessage.data != null) {
+            sendNotification(remoteMessage.data["body"], remoteMessage.data["title"])
         }
         else {
-            sendNotification(remoteMessage.notification?.body, remoteMessage.notification?.title)
+            sendNotification(remoteMessage.data["body"], remoteMessage.data["title"])
         }
     }
 
     // FCM 메시지를 보내는 메시지
+    /**
+     * Notification Message 앱이 포그라운드에 있을 때 코드가 전달된다.
+     * Data Message 언제든 코드를 탄다.
+     */
     private fun sendNotification(body: String?, title: String?) {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -64,6 +61,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         // 푸시알람 부가설정
         var notificationBuilder = NotificationCompat.Builder(this,channelId)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle(title)
             .setContentText(body)
@@ -71,9 +69,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setSound(notificationSound)
             .setContentIntent(pendingIntent)
             .setFullScreenIntent(fullScreenPendingIntent, true)
-            .setTimeoutAfter(1500)
+//            .setTimeoutAfter(1500)
 
-        notificationBuilder.priority = NotificationCompat.PRIORITY_HIGH
         var notificationManager: NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(notificationId, notificationBuilder.build())
     }
