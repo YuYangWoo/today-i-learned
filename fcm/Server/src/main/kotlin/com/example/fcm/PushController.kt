@@ -16,41 +16,7 @@ class PushController {
     @GetMapping("/push")
     private fun pushTransfer() {
         val firebaseCloudMessageService = FirebaseCloudMessageService()
-        firebaseCloudMessageService.sendMessageTo("eS3FCiteRjKhIzm81e0RPo:APA91bHgjhZ81HxUhrNq8pLwDExc5dc6uovhCm9Nn-2ph7fA7f7Mi4m7TOUSzyCR92VeScerNp2IZAf7YZGcA6XjTXXjXNuzXGdnm3I5UgaW5JeNLXgg-QIMCB38ryPnH-Ct9hAWvlzC","제목", "내용" )
-//        var deviceToken = "eS3FCiteRjKhIzm81e0RPo:APA91bHgjhZ81HxUhrNq8pLwDExc5dc6uovhCm9Nn-2ph7fA7f7Mi4m7TOUSzyCR92VeScerNp2IZAf7YZGcA6XjTXXjXNuzXGdnm3I5UgaW5JeNLXgg-QIMCB38ryPnH-Ct9hAWvlzC"
-//        var client = OkHttpClient.Builder().build()
-//        val notification = JSONObject()
-//        notification.put("body", "반납 15분 전입니다")
-//        notification.put("title", "반납알림")
-//
-//
-//        var body = FormBody.Builder()
-//            .add("to", deviceToken)
-//            .add("project_id", senderId)
-//            .add("notification", notification.toString())
-//            .build()
-//        println("formBody는 ${body.toString()}")
-//        var request = Request.Builder()
-//            .url("https://fcm.googleapis.com/fcm/send")
-//            .addHeader("Authorization", "key=$apiKey")
-//            .post(body)
-//            .build()
-//
-//        println(request.toString())
-//        client.newCall(request).enqueue(object : Callback {
-//            override fun onFailure(call: Call, e: IOException) {
-//                print(e.toString() + "에러나땅 ㅠ")
-//            }
-//
-//            override fun onResponse(call: Call, response: Response) {
-//                if(response.isSuccessful) {
-//                    print(  "$response.code 성공해땅! ")
-//                }
-//                else {
-//                    print(response.body.toString())
-//                }
-//            }
-//
-//        })
+        firebaseCloudMessageService.sendMessageTo("d3bf5lSoQ22vFUjfiDc-s9:APA91bGMkqaJwL9xJo2Ku7aUxIyyoyQl6Lt_EJ8GO1VvlWbGJy3rhHEpb2_hFUTsXJNDrysHdzcn0ocG1Lq0cTamf0LInRmQeXNs90-dr90kqW3UVTF7FOQVAG-a5K6FCPd5bFLND6e7","제목", "내용" )
+
     }
 }

@@ -3,7 +3,77 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/cell/each/CellFooter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/intro/Intro.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/cell/ProductCellDetailE.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/productDetail/cell/Price.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/shockingdeal-android/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/shockingdeal-android/app/src/main/java/com/elevenst/deals/push/FCMListenerService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/shockingdeal-android/app/src/main/java/com/elevenst/deals/v3/fragment/SplashFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/fcm_push/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/fcm_push/MyFirebaseMessagingService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../shockingdeal-android/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../shockingdeal-android/app/src/main/java/com/elevenst/deals/push/FCMListenerService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../shockingdeal-android/app/src/main/java/com/elevenst/deals/push/PushIntentService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
           <value>
             <set />
           </value>

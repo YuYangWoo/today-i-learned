@@ -40,7 +40,7 @@ class FirebaseCloudMessageService {
 
     @Throws(JsonProcessingException::class)
     private fun makeMessage(targetToken: String, title: String, body: String): String {
-       val fcmMessage =  FcmMessage(false, FcmMessage.Message(FcmMessage.Notification(title, body, ""), targetToken)  )
+       val fcmMessage =  FcmMessage(false, FcmMessage.Message(FcmMessage.Data(title, body, ""), targetToken)  )
         objectMapper = ObjectMapper()
         return objectMapper!!.writeValueAsString(fcmMessage)
     }
