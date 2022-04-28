@@ -25,11 +25,17 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     // 새로운 FCM 메시지가 있을 때 메세지를 받는다
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        val msgData = remoteMessage.data
+        val body = msgData["body"]
+        val title = msgData["title"]
+
+        val intent = Intent()
+        intent.putExtra("body", body)
+        intent.putExtra("title", title)
+
         if(remoteMessage.data != null) {
-            sendNotification(remoteMessage.data["body"], remoteMessage.data["title"])
-        }
-        else {
-            sendNotification(remoteMessage.data["body"], remoteMessage.data["title"])
+//        PushJobIntentService.enqueWork(applicationContext, intent)
+            sendNotification(body, title)
         }
     }
 
@@ -38,7 +44,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      * Notification Message 앱이 포그라운드에 있을 때 코드가 전달된다.
      * Data Message 언제든 코드를 탄다.
      */
-    private fun sendNotification(body: String?, title: String?) {
+    fun sendNotification(body: String?, title: String?) {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             putExtra("Notification", body)
@@ -48,7 +54,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         var pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
         val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
-        // head up 알림 생성하기
+        /**
+         * NotificationId와 ChannelId가 같지 않으면 Head-up 알람이 뜨지 않는다.
+         */
         val notificationId = 1001
         createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_HIGH, false,
             getString(R.string.app_name), "App notification channel")
@@ -69,7 +77,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setSound(notificationSound)
             .setContentIntent(pendingIntent)
             .setFullScreenIntent(fullScreenPendingIntent, true)
-//            .setTimeoutAfter(1500)
+            .setTimeoutAfter(1500)
 
         var notificationManager: NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(notificationId, notificationBuilder.build())
