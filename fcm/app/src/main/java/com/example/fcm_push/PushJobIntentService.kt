@@ -6,19 +6,18 @@ import android.util.Log
 import androidx.core.app.JobIntentService
 
 class PushJobIntentService : JobIntentService() {
+    private val JOB_ID = 1001
+    private val TAG = "PushJobIntentService"
 
-    companion object {
-        const val JOB_ID = 1001
-        const val TAG = "PushJobIntentService"
-
-        fun enqueWork(context: Context, work: Intent) {
-            enqueueWork(context, PushJobIntentService::class.java, JOB_ID, work)
-        }
+    fun enqueWork(context: Context, work: Intent) {
+        enqueueWork(context, PushJobIntentService::class.java, JOB_ID, work)
     }
 
     override fun onHandleWork(intent: Intent) {
+        val myFirebaseMessagingService = MyFirebaseMessagingService()
         try {
-            MyFirebaseMessagingService.sendNotification(applicationContext,
+            myFirebaseMessagingService.sendNotification(
+                applicationContext,
                 intent.getStringExtra("title"),
                 intent.getStringExtra("body")
             )
