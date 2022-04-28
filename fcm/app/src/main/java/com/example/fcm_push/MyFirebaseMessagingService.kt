@@ -34,8 +34,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         intent.putExtra("title", title)
 
         if(remoteMessage.data != null) {
-//        PushJobIntentService.enqueWork(applicationContext, intent)
-            sendNotification(body, title)
+        PushJobIntentService.enqueWork(applicationContext, intent)
+//            sendNotification(body, title)
         }
     }
 
@@ -44,56 +44,59 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      * Notification Message 앱이 포그라운드에 있을 때 코드가 전달된다.
      * Data Message 언제든 코드를 탄다.
      */
-    fun sendNotification(body: String?, title: String?) {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            putExtra("Notification", body)
-            putExtra("Notification",title)
+    companion object {
+        fun sendNotification(context: Context, body: String?, title: String?) {
+            val intent = Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                putExtra("Notification", body)
+                putExtra("Notification",title)
+            }
+
+            var pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+            val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+            /**
+             * NotificationId와 ChannelId가 같지 않으면 Head-up 알람이 뜨지 않는다.
+             */
+            val notificationId = 1001
+            createNotificationChannel(context, NotificationManagerCompat.IMPORTANCE_HIGH, false,
+                "Fcm_Push", "App notification channel")
+
+            val channelId = "${context.packageName}-Fcm_Push"
+
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val fullScreenPendingIntent = PendingIntent.getActivity(context, 0,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+            // 푸시알람 부가설정
+            var notificationBuilder = NotificationCompat.Builder(context,channelId)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle(title)
+                .setContentText(body)
+                .setAutoCancel(true)
+                .setSound(notificationSound)
+                .setContentIntent(pendingIntent)
+                .setFullScreenIntent(fullScreenPendingIntent, true)
+                .setTimeoutAfter(1500)
+
+            var notificationManager: NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(notificationId, notificationBuilder.build())
         }
 
-        var pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
-        val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        // NotificationChannel 만드는 메서드
+        private fun createNotificationChannel(context: Context, importance: Int, showBadge: Boolean,
+                                              name: String, description: String) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val channelId = "${context.packageName}-$name"
+                val channel = NotificationChannel(channelId, name, importance)
+                channel.description = description
+                channel.setShowBadge(showBadge)
 
-        /**
-         * NotificationId와 ChannelId가 같지 않으면 Head-up 알람이 뜨지 않는다.
-         */
-        val notificationId = 1001
-        createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_HIGH, false,
-            getString(R.string.app_name), "App notification channel")
-
-        val channelId = "$packageName-${getString(R.string.app_name)}"
-
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        val fullScreenPendingIntent = PendingIntent.getActivity(baseContext, 0,
-            intent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-        // 푸시알람 부가설정
-        var notificationBuilder = NotificationCompat.Builder(this,channelId)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle(title)
-            .setContentText(body)
-            .setAutoCancel(true)
-            .setSound(notificationSound)
-            .setContentIntent(pendingIntent)
-            .setFullScreenIntent(fullScreenPendingIntent, true)
-            .setTimeoutAfter(1500)
-
-        var notificationManager: NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(notificationId, notificationBuilder.build())
-    }
-
-    // NotificationChannel 만드는 메서드
-    private fun createNotificationChannel(context: Context, importance: Int, showBadge: Boolean,
-                                          name: String, description: String) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelId = "${context.packageName}-$name"
-            val channel = NotificationChannel(channelId, name, importance)
-            channel.description = description
-            channel.setShowBadge(showBadge)
-
-            val notificationManager = context.getSystemService(NotificationManager::class.java)
-            notificationManager.createNotificationChannel(channel)
+                val notificationManager = context.getSystemService(NotificationManager::class.java)
+                notificationManager.createNotificationChannel(channel)
+            }
         }
     }
+
 }

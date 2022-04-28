@@ -16,7 +16,7 @@ class PushController {
     @GetMapping("/push")
     private fun pushTransfer() {
         val firebaseCloudMessageService = FirebaseCloudMessageService()
-        firebaseCloudMessageService.sendMessageTo("d3bf5lSoQ22vFUjfiDc-s9:APA91bGMkqaJwL9xJo2Ku7aUxIyyoyQl6Lt_EJ8GO1VvlWbGJy3rhHEpb2_hFUTsXJNDrysHdzcn0ocG1Lq0cTamf0LInRmQeXNs90-dr90kqW3UVTF7FOQVAG-a5K6FCPd5bFLND6e7","제목", "내용" )
+        firebaseCloudMessageService.sendMessageTo("f__lnzsNQTq1cuhVeuFNCC:APA91bHtUOgEskfn2ag4XRB7kh8zjoYLz72RSscqfJpDvEzDzvl-63GueoVCd8r0EFY3aqV2_YunTBrheHtPEuSf6w2gakAkWP83p2pnTGr4qWrzTmW0ZS3jBf5-qljhDBu1_qKQcBQK","제목", "내용" )
 
     }
 }
